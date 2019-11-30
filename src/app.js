@@ -6,6 +6,7 @@ const express=require('express')
 
 
 const app=express()
+const port=process.env.PORT||3000
 //define path for express config
 const pathDirectory=path.join(__dirname,'../public')
 const viewsPath=path.join(__dirname,'../templates/views')
@@ -67,6 +68,6 @@ app.get('/help/*',(req,res)=>{
 app.get('*',(req,res)=>{
     res.render('error',{title:'Error',message:'page not found',name:'Logesh'})
 })
-app.listen(3000,()=>{
-    console.log('Server is running on 3000')
+app.listen(port,()=>{
+    console.log('Server is running on'+port)
 })
